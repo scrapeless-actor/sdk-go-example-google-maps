@@ -1,0 +1,952 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scrapeless.com/captcha/turnstile.schema.json",
+  "title": "google-map",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "q": {
+      "title": "Search Query",
+      "description": "Parameter defines the query you want to search. You can use anything that you would use in a regular Google Maps search. The parameter is only required if type is set to search.",
+      "type": "string",
+      "default": "Restaurants"
+    },
+    "ll": {
+      "title": "GPS Coordinates",
+      "description": "Parameter defines the GPS coordinates of the location where you want the search to originate from. Its value must match the following format:@ + latitude + , + longitude + , + zoom. This will form a string that looks like this:e.g. `@40.7455096,-74.0083012,14z`. The zoom attribute ranges from 3z, map completely zoomed out - to 21z, map completely zoomed in. The parameter should only be used when type is set to search. Results are not guaranteed to be within the requested geographic location.",
+      "type": "string",
+      "default": ""
+    },
+    "google_domain": {
+      "title": "google_domain",
+      "description": "Parameter defines the Google domain to use. It defaults to `google.com`.",
+      "type": "string",
+      "default": "google.com",
+      "enum": [
+        {
+          "label": "google.com",
+          "value": "google.com"
+        },
+        {
+          "label": "google.ad",
+          "value": "google.ad"
+        },
+        {
+          "label": "google.ae",
+          "value": "google.ae"
+        },
+        {
+          "label": "google.com.af",
+          "value": "google.com.af"
+        },
+        {
+          "label": "google.com.ag",
+          "value": "google.com.ag"
+        },
+        {
+          "label": "google.com.ai",
+          "value": "google.com.ai"
+        },
+        {
+          "label": "google.al",
+          "value": "google.al"
+        },
+        {
+          "label": "google.am",
+          "value": "google.am"
+        },
+        {
+          "label": "google.co.ao",
+          "value": "google.co.ao"
+        },
+        {
+          "label": "google.com.ar",
+          "value": "google.com.ar"
+        },
+        {
+          "label": "google.as",
+          "value": "google.as"
+        },
+        {
+          "label": "google.at",
+          "value": "google.at"
+        },
+        {
+          "label": "google.com.au",
+          "value": "google.com.au"
+        },
+        {
+          "label": "google.az",
+          "value": "google.az"
+        },
+        {
+          "label": "google.ba",
+          "value": "google.ba"
+        },
+        {
+          "label": "google.com.bd",
+          "value": "google.com.bd"
+        },
+        {
+          "label": "google.be",
+          "value": "google.be"
+        },
+        {
+          "label": "google.bf",
+          "value": "google.bf"
+        },
+        {
+          "label": "google.bg",
+          "value": "google.bg"
+        },
+        {
+          "label": "google.com.bh",
+          "value": "google.com.bh"
+        },
+        {
+          "label": "google.bi",
+          "value": "google.bi"
+        },
+        {
+          "label": "google.bj",
+          "value": "google.bj"
+        },
+        {
+          "label": "google.com.bn",
+          "value": "google.com.bn"
+        },
+        {
+          "label": "google.com.bo",
+          "value": "google.com.bo"
+        },
+        {
+          "label": "google.com.br",
+          "value": "google.com.br"
+        },
+        {
+          "label": "google.bs",
+          "value": "google.bs"
+        },
+        {
+          "label": "google.bt",
+          "value": "google.bt"
+        },
+        {
+          "label": "google.co.bw",
+          "value": "google.co.bw"
+        },
+        {
+          "label": "google.by",
+          "value": "google.by"
+        },
+        {
+          "label": "google.com.bz",
+          "value": "google.com.bz"
+        },
+        {
+          "label": "google.ca",
+          "value": "google.ca"
+        },
+        {
+          "label": "google.com.kh",
+          "value": "google.com.kh"
+        },
+        {
+          "label": "google.cd",
+          "value": "google.cd"
+        },
+        {
+          "label": "google.cf",
+          "value": "google.cf"
+        },
+        {
+          "label": "google.cg",
+          "value": "google.cg"
+        },
+        {
+          "label": "google.ch",
+          "value": "google.ch"
+        },
+        {
+          "label": "google.ci",
+          "value": "google.ci"
+        },
+        {
+          "label": "google.co.ck",
+          "value": "google.co.ck"
+        },
+        {
+          "label": "google.cl",
+          "value": "google.cl"
+        },
+        {
+          "label": "google.cm",
+          "value": "google.cm"
+        },
+        {
+          "label": "google.com.co",
+          "value": "google.com.co"
+        },
+        {
+          "label": "google.co.cr",
+          "value": "google.co.cr"
+        },
+        {
+          "label": "google.com.cu",
+          "value": "google.com.cu"
+        },
+        {
+          "label": "google.cv",
+          "value": "google.cv"
+        },
+        {
+          "label": "google.com.cy",
+          "value": "google.com.cy"
+        },
+        {
+          "label": "google.cz",
+          "value": "google.cz"
+        },
+        {
+          "label": "google.de",
+          "value": "google.de"
+        },
+        {
+          "label": "google.dj",
+          "value": "google.dj"
+        },
+        {
+          "label": "google.dk",
+          "value": "google.dk"
+        },
+        {
+          "label": "google.dm",
+          "value": "google.dm"
+        },
+        {
+          "label": "google.com.do",
+          "value": "google.com.do"
+        },
+        {
+          "label": "google.dz",
+          "value": "google.dz"
+        },
+        {
+          "label": "google.com.ec",
+          "value": "google.com.ec"
+        },
+        {
+          "label": "google.ee",
+          "value": "google.ee"
+        },
+        {
+          "label": "google.com.eg",
+          "value": "google.com.eg"
+        },
+        {
+          "label": "google.es",
+          "value": "google.es"
+        },
+        {
+          "label": "google.com.et",
+          "value": "google.com.et"
+        },
+        {
+          "label": "google.fi",
+          "value": "google.fi"
+        },
+        {
+          "label": "google.fm",
+          "value": "google.fm"
+        },
+        {
+          "label": "google.com.fj",
+          "value": "google.com.fj"
+        },
+        {
+          "label": "google.fr",
+          "value": "google.fr"
+        },
+        {
+          "label": "google.ga",
+          "value": "google.ga"
+        },
+        {
+          "label": "google.ge",
+          "value": "google.ge"
+        },
+        {
+          "label": "google.com.gh",
+          "value": "google.com.gh"
+        },
+        {
+          "label": "google.com.gi",
+          "value": "google.com.gi"
+        },
+        {
+          "label": "google.gl",
+          "value": "google.gl"
+        },
+        {
+          "label": "google.gm",
+          "value": "google.gm"
+        },
+        {
+          "label": "google.gp",
+          "value": "google.gp"
+        },
+        {
+          "label": "google.gr",
+          "value": "google.gr"
+        },
+        {
+          "label": "google.com.gt",
+          "value": "google.com.gt"
+        },
+        {
+          "label": "google.gy",
+          "value": "google.gy"
+        },
+        {
+          "label": "google.com.hk",
+          "value": "google.com.hk"
+        },
+        {
+          "label": "google.hn",
+          "value": "google.hn"
+        },
+        {
+          "label": "google.hr",
+          "value": "google.hr"
+        },
+        {
+          "label": "google.ht",
+          "value": "google.ht"
+        },
+        {
+          "label": "google.hu",
+          "value": "google.hu"
+        },
+        {
+          "label": "google.co.id",
+          "value": "google.co.id"
+        },
+        {
+          "label": "google.iq",
+          "value": "google.iq"
+        },
+        {
+          "label": "google.ie",
+          "value": "google.ie"
+        },
+        {
+          "label": "google.co.il",
+          "value": "google.co.il"
+        },
+        {
+          "label": "google.co.in",
+          "value": "google.co.in"
+        },
+        {
+          "label": "google.is",
+          "value": "google.is"
+        },
+        {
+          "label": "google.it",
+          "value": "google.it"
+        },
+        {
+          "label": "google.je",
+          "value": "google.je"
+        },
+        {
+          "label": "google.com.jm",
+          "value": "google.com.jm"
+        },
+        {
+          "label": "google.jo",
+          "value": "google.jo"
+        },
+        {
+          "label": "google.co.jp",
+          "value": "google.co.jp"
+        },
+        {
+          "label": "google.co.ke",
+          "value": "google.co.ke"
+        },
+        {
+          "label": "google.ki",
+          "value": "google.ki"
+        },
+        {
+          "label": "google.kg",
+          "value": "google.kg"
+        },
+        {
+          "label": "google.co.kr",
+          "value": "google.co.kr"
+        },
+        {
+          "label": "google.com.kw",
+          "value": "google.com.kw"
+        },
+        {
+          "label": "google.kz",
+          "value": "google.kz"
+        },
+        {
+          "label": "google.la",
+          "value": "google.la"
+        },
+        {
+          "label": "google.com.lb",
+          "value": "google.com.lb"
+        },
+        {
+          "label": "google.li",
+          "value": "google.li"
+        },
+        {
+          "label": "google.lk",
+          "value": "google.lk"
+        },
+        {
+          "label": "google.co.ls",
+          "value": "google.co.ls"
+        },
+        {
+          "label": "google.lt",
+          "value": "google.lt"
+        },
+        {
+          "label": "google.lu",
+          "value": "google.lu"
+        },
+        {
+          "label": "google.lv",
+          "value": "google.lv"
+        },
+        {
+          "label": "google.com.ly",
+          "value": "google.com.ly"
+        },
+        {
+          "label": "google.co.ma",
+          "value": "google.co.ma"
+        },
+        {
+          "label": "google.md",
+          "value": "google.md"
+        },
+        {
+          "label": "google.mg",
+          "value": "google.mg"
+        },
+        {
+          "label": "google.mk",
+          "value": "google.mk"
+        },
+        {
+          "label": "google.ml",
+          "value": "google.ml"
+        },
+        {
+          "label": "google.com.mm",
+          "value": "google.com.mm"
+        },
+        {
+          "label": "google.mn",
+          "value": "google.mn"
+        },
+        {
+          "label": "google.ms",
+          "value": "google.ms"
+        },
+        {
+          "label": "google.com.mt",
+          "value": "google.com.mt"
+        },
+        {
+          "label": "google.mu",
+          "value": "google.mu"
+        },
+        {
+          "label": "google.mv",
+          "value": "google.mv"
+        },
+        {
+          "label": "google.mw",
+          "value": "google.mw"
+        },
+        {
+          "label": "google.com.mx",
+          "value": "google.com.mx"
+        },
+        {
+          "label": "google.com.my",
+          "value": "google.com.my"
+        },
+        {
+          "label": "google.co.mz",
+          "value": "google.co.mz"
+        },
+        {
+          "label": "google.com.na",
+          "value": "google.com.na"
+        },
+        {
+          "label": "google.ne",
+          "value": "google.ne"
+        },
+        {
+          "label": "google.com.ng",
+          "value": "google.com.ng"
+        },
+        {
+          "label": "google.com.ni",
+          "value": "google.com.ni"
+        },
+        {
+          "label": "google.nl",
+          "value": "google.nl"
+        },
+        {
+          "label": "google.no",
+          "value": "google.no"
+        },
+        {
+          "label": "google.com.np",
+          "value": "google.com.np"
+        },
+        {
+          "label": "google.nr",
+          "value": "google.nr"
+        },
+        {
+          "label": "google.nu",
+          "value": "google.nu"
+        },
+        {
+          "label": "google.co.nz",
+          "value": "google.co.nz"
+        },
+        {
+          "label": "google.com.om",
+          "value": "google.com.om"
+        },
+        {
+          "label": "google.com.pk",
+          "value": "google.com.pk"
+        },
+        {
+          "label": "google.com.pa",
+          "value": "google.com.pa"
+        },
+        {
+          "label": "google.com.pe",
+          "value": "google.com.pe"
+        },
+        {
+          "label": "google.com.ph",
+          "value": "google.com.ph"
+        },
+        {
+          "label": "google.pl",
+          "value": "google.pl"
+        },
+        {
+          "label": "google.com.pg",
+          "value": "google.com.pg"
+        },
+        {
+          "label": "google.com.pr",
+          "value": "google.com.pr"
+        },
+        {
+          "label": "google.ps",
+          "value": "google.ps"
+        },
+        {
+          "label": "google.pt",
+          "value": "google.pt"
+        },
+        {
+          "label": "google.com.py",
+          "value": "google.com.py"
+        },
+        {
+          "label": "google.com.qa",
+          "value": "google.com.qa"
+        },
+        {
+          "label": "google.ro",
+          "value": "google.ro"
+        },
+        {
+          "label": "google.rs",
+          "value": "google.rs"
+        },
+        {
+          "label": "google.ru",
+          "value": "google.ru"
+        },
+        {
+          "label": "google.rw",
+          "value": "google.rw"
+        },
+        {
+          "label": "google.com.sa",
+          "value": "google.com.sa"
+        },
+        {
+          "label": "google.com.sb",
+          "value": "google.com.sb"
+        },
+        {
+          "label": "google.sc",
+          "value": "google.sc"
+        },
+        {
+          "label": "google.se",
+          "value": "google.se"
+        },
+        {
+          "label": "google.com.sg",
+          "value": "google.com.sg"
+        },
+        {
+          "label": "google.sh",
+          "value": "google.sh"
+        },
+        {
+          "label": "google.si",
+          "value": "google.si"
+        },
+        {
+          "label": "google.sk",
+          "value": "google.sk"
+        },
+        {
+          "label": "google.com.sl",
+          "value": "google.com.sl"
+        },
+        {
+          "label": "google.sn",
+          "value": "google.sn"
+        },
+        {
+          "label": "google.sm",
+          "value": "google.sm"
+        },
+        {
+          "label": "google.so",
+          "value": "google.so"
+        },
+        {
+          "label": "google.sr",
+          "value": "google.sr"
+        },
+        {
+          "label": "google.com.sv",
+          "value": "google.com.sv"
+        },
+        {
+          "label": "google.td",
+          "value": "google.td"
+        },
+        {
+          "label": "google.tg",
+          "value": "google.tg"
+        },
+        {
+          "label": "google.co.th",
+          "value": "google.co.th"
+        },
+        {
+          "label": "google.com.tj",
+          "value": "google.com.tj"
+        },
+        {
+          "label": "google.tk",
+          "value": "google.tk"
+        },
+        {
+          "label": "google.tl",
+          "value": "google.tl"
+        },
+        {
+          "label": "google.tm",
+          "value": "google.tm"
+        },
+        {
+          "label": "google.to",
+          "value": "google.to"
+        },
+        {
+          "label": "google.tn",
+          "value": "google.tn"
+        },
+        {
+          "label": "google.com.tr",
+          "value": "google.com.tr"
+        },
+        {
+          "label": "google.tt",
+          "value": "google.tt"
+        },
+        {
+          "label": "google.com.tw",
+          "value": "google.com.tw"
+        },
+        {
+          "label": "google.co.tz",
+          "value": "google.co.tz"
+        },
+        {
+          "label": "google.com.ua",
+          "value": "google.com.ua"
+        },
+        {
+          "label": "google.co.ug",
+          "value": "google.co.ug"
+        },
+        {
+          "label": "google.co.uk",
+          "value": "google.co.uk"
+        },
+        {
+          "label": "google.com.uy",
+          "value": "google.com.uy"
+        },
+        {
+          "label": "google.co.uz",
+          "value": "google.co.uz"
+        },
+        {
+          "label": "google.com.vc",
+          "value": "google.com.vc"
+        },
+        {
+          "label": "google.co.ve",
+          "value": "google.co.ve"
+        },
+        {
+          "label": "google.vg",
+          "value": "google.vg"
+        },
+        {
+          "label": "google.co.vi",
+          "value": "google.co.vi"
+        },
+        {
+          "label": "google.com.vn",
+          "value": "google.com.vn"
+        },
+        {
+          "label": "google.vu",
+          "value": "google.vu"
+        },
+        {
+          "label": "google.ws",
+          "value": "google.ws"
+        },
+        {
+          "label": "google.co.za",
+          "value": "google.co.za"
+        },
+        {
+          "label": "google.co.zm",
+          "value": "google.co.zm"
+        },
+        {
+          "label": "google.co.zw",
+          "value": "google.co.zw"
+        }
+      ]
+    },
+    "gl": {
+      "title": "Country",
+      "description": "Parameter defines the country to use for the Google search. It's a two-letter country code. (e.g., `us` for the United States, `uk` for United Kingdom, or `fr` for France).",
+      "type": "string",
+      "default": "us"
+    },
+    "hl": {
+      "title": "Language",
+      "description": "Parameter defines the language to use for the Google search. It's a two-letter language code. (e.g., `en` for English, `es` for Spanish, or `fr` for French).",
+      "type": "string",
+      "default": "en-sg"
+    },
+    "data": {
+      "title": "Data",
+      "description": "Parameters can be used to filter search results. You can visit the Google Maps website, set the desired filters, and then simply copy the data values from its URL. One of the uses of the parameter is to search for a specific place; therefore, it is required if the type is set to place. \n\nAlternatively, `place_id` can be used. To use the data parameter to search for a specific place, it needs to be constructed in the following sequence:!4m5!3m4!1s + data_id + !8m2!3d + latitude + !4d + longitude. This will form a string that looks like this:`!4m5!3m4!1s0x89c259b7abdd4769:0xc385876db174521a!8m2!3d40.750231!4d-74.004019`.",
+      "type": "string",
+      "default": ""
+    },
+    "engine": {
+      "title": "Engine",
+      "description": "Set parameter to `google_maps` to use the Google Maps API engine.",
+      "type": "string",
+      "default": "google_maps",
+      "enum": [
+        {
+          "label": "google_maps",
+          "value": "google_maps"
+        }
+      ]
+    },
+    "contributor_id": {
+      "title": "Contributor ID",
+      "description": "Parameter defines the Google Maps Contributor ID. It's a series of digits which can be found in the contributor reviews URL.\nFor example, the contributor ID for the URL https://www.google.com/maps/contrib/110382514725174877672/reviews is 110382514725174877672.",
+      "type": "string",
+      "default": "109736708296406538146"
+    },
+    "next_page_token": {
+      "title": "Next Page Token",
+      "description": "Parameter defines the next page token.",
+      "type": "string",
+      "default": ""
+    },
+    "num": {
+      "title": "Number of Results",
+      "description": "Parameter defines the maximum number of results to return. (e.g., `10` (default) returns 10 results, and `200` returns 200 results). This parameter should not be larger than `200`.",
+      "type": "string",
+      "default": ""
+    },
+    "sort_by": {
+      "title": "Place ID",
+      "description": "Parameter is used for sorting and refining results. Available options:\n\n`qualityScore` - the most relevant reviews (default).\n`newestFirst` - the most recent reviews.\n`ratingHigh` - the highest rating reviews.\n`ratingLow` - the lowest rating reviews.",
+      "type": "string",
+      "default": "",
+      "enum": [
+        {
+          "label": "Most Relevant",
+          "value": "qualityScore"
+        },
+        {
+          "label": "Newest",
+          "value": "newestFirst"
+        },
+        {
+          "label": "Highest rating",
+          "value": "ratingHigh"
+        },
+        {
+          "label": "Lowest rating",
+          "value": "ratingLow"
+        }
+      ]
+    },
+    "topic_id": {
+      "title": "Topic ID",
+      "description": "Parameter defines the ID of the topic you want to use for filtering reviews. You can access IDs inside our structured JSON response.",
+      "type": "string",
+      "default": ""
+    },
+    "data_id": {
+      "title": "Data ID",
+      "description": "Either `data_id` or `place_id` should be set.",
+      "type": "string",
+      "default": "0x89c259af336b3341:0xa4969e07ce3108de"
+    },
+    "start_addr": {
+      "title": "Starting point address",
+      "description": "Parameter defines the address of the starting point for the direction you want to search. You can use anything that you would use in a regular Google Maps Directions search.\n\nAlternatively, you can use `start_data_id` or `start_coords`.",
+      "type": "string",
+      "default": "Austin-Bergstrom International Airport"
+    },
+    "end_addr": {
+      "title": "Ending point address",
+      "description": "Parameter defines the address of the ending point for the direction you want to search. You can use anything that you would use in a regular Google Maps Directions search.\n\nAlternatively, you can use `end_data_id` or `end_coords`.",
+      "type": "string",
+      "default": "5540 N Lamar Blvd, Austin, TX 78756, USA"
+    },
+    "travel_mode": {
+      "title": "Travel mode",
+      "description": "Parameter defines the travel mode.\nAvailable options:\n`6` - Best (Default)\n`0` - Driving\n`9` - Two-wheeler\n`3` - Transit\n`2` - Walking\n`1` - Cycling\n`4` - Flight",
+      "type": "string",
+      "default": "",
+      "enum": [
+        {
+          "label": "Best (Default) - 6",
+          "value": "6"
+        },
+        {
+          "label": "Driving - 0",
+          "value": "0"
+        },
+        {
+          "label": "Two-wheeler - 9",
+          "value": "9"
+        },
+        {
+          "label": "Transit - 3",
+          "value": "3"
+        },
+        {
+          "label": "Walking - 2",
+          "value": "2"
+        },
+        {
+          "label": "Cycling - 1",
+          "value": "1"
+        },
+        {
+          "label": "Flight - 4",
+          "value": "4"
+        }
+      ]
+    },
+    "distance_unit": {
+      "title": "Distance Unit",
+      "description": "Parameter defines the displayed distance unit.\nAvailable options:\n`1` - miles\n`0` - km",
+      "type": "string",
+      "default": ""
+    },
+    "avoid": {
+      "title": "Avoid options",
+      "description": "Parameter defines avoid options.\nAvailable options:\n`highways` - Highways\n`tolls` - Tolls\n`ferries` - Ferries\nYou can also combine multiple options by joining them with a comma (e.g.: `highways`,`tolls`).",
+      "type": "string",
+      "default": ""
+    },
+    "prefer": {
+      "title": "Perfer options",
+      "description": "Parameter defines preferred transit options.\nAvailable options:\n`bus` - Bus\n`subway` - Subway\n`train` - Train\n`tram_light_rail` - Tram and light rail\nYou can also combine multiple options by joining them with a comma (e.g.: `subway`,`train`).\n\nParameter works only if travel_mode parameter is set to: `3` (Transit)",
+      "type": "string",
+      "default": ""
+    },
+    "route": {
+      "title": "Route options",
+      "description": "Parameter defines route options.\nAvailable options:\n`2` - Fewer transfers\n`3` - Less walking\n`4` - Wheelchair accessible\n\nParameter works only if `travel_mode` parameter is set to: `3` (Transit)",
+      "type": "string",
+      "default": "",
+      "enum": [
+        {
+          "label": "Fewer transfers - 2",
+          "value": "2"
+        },
+        {
+          "label": "Less walking - 3",
+          "value": "3"
+        },
+        {
+          "label": "Wheelchair accessible - 4",
+          "value": "4"
+        }
+      ]
+    },
+    "photo_data_id": {
+      "title": "Photo Data ID",
+      "description": "Parameter defines the Google Maps Photos' data ID.",
+      "type": "string",
+      "default": "AF1QipPgpYDUI0JWCPPnyyLKxkXWTog37g-Cpfxc654n"
+    },
+    "category_id": {
+      "title": "Category ID",
+      "description": "Parameter defines the ID of a category. The number, and the type of categories can vary between places.",
+      "type": "string",
+      "default": ""
+    }
+  },
+  "required": []
+}

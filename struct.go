@@ -15,10 +15,6 @@ const (
 	GoogleMapsReviews            = "reviews"
 )
 
-type QueueParams struct {
-	Params []RequestParam `json:"params"`
-}
-
 type RequestParam struct {
 	Q             string `json:"q"`
 	Ll            string `json:"ll,omitempty"`
@@ -42,10 +38,6 @@ type RequestParam struct {
 	StartAddr    string `json:"start_addr,omitempty"`
 	EndAddr      string `json:"end_addr,omitempty"`
 	TravelMode   string `json:"travel_mode,omitempty"`
-	StartDataId  string `json:"start_data_id,omitempty"`
-	EndDataId    string `json:"end_data_id,omitempty"`
-	StartCoords  string `json:"start_coords,omitempty"`
-	EndCoords    string `json:"end_coords,omitempty"`
 	DistanceUnit string `json:"distance_unit,omitempty"`
 	Avoid        string `json:"avoid,omitempty"`
 	Prefer       string `json:"prefer,omitempty"`

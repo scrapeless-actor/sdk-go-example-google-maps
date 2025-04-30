@@ -123,11 +123,9 @@ func doMapsManage(ctx context.Context, params *RequestParam) (*Response, error) 
 		dataStr = strings.ReplaceAll(data.D, ")]}'\n", "")
 	}
 
-	// type = search 搜索结果
 	searchResultFunc := func(mapsData string, isNotStart bool) (Response, error) {
 		var response Response // 最终返回的结构体
 
-		// 2025-04-07 Google Maps返回数据结构发生变更，由 0, 1 数组下标变更为 64
 		var localResultStr string
 		if isNotStart {
 			localResultStr = jsoniter.Get([]byte(mapsData), 64).ToString()
@@ -241,7 +239,7 @@ func doMapsManage(ctx context.Context, params *RequestParam) (*Response, error) 
 		return response, nil
 	}
 
-	// type = place 或者 placeId != ""
+	// type = place or placeId != ""
 	placeResultFunc := func(mapsData string) (Response, error) {
 		var response Response
 		placeResults := PlaceResults{
@@ -588,7 +586,6 @@ func doMapsManage(ctx context.Context, params *RequestParam) (*Response, error) 
 			return nil, err
 		}
 	} else {
-		// 判断有为start参数
 		if isNotStart {
 			mapsData = strings.ReplaceAll(jsoniter.Get([]byte(dataStr), 3, 2).ToString(), ")]}'\n", "")
 		} else {
@@ -616,7 +613,7 @@ func DoMapsAutocomplete(ctx context.Context, params *RequestParam) (*Response, e
 	if len(llSplit) < 2 {
 		return nil, fmt.Errorf("ll format error")
 	}
-	// 游标与缩放问题
+
 	pb := fmt.Sprintf("!2i6!4m9!1m3!1d362730.1311737605!2d%s!3d%s!2m0!3m2!1i2160!2i1440!4f13.1!7i20!10b1!12m16!1m1!18b1!2m3!5m1!6e2!20e3!10b1!12b1!13b1!16b1!17m1!3e1!20m3!5e2!6b1!14b1!19m4!2m3!1i360!2i120!4i8!20m57!2m2!1i203!2i100!3m2!2i4!5b1!6m6!1m2!1i86!2i86!1m2!1i408!2i240!7m42!1m3!1e1!2b0!3e3!1m3!1e2!2b1!3e2!1m3!1e2!2b0!3e3!1m3!1e8!2b0!3e3!1m3!1e10!2b0!3e3!1m3!1e10!2b1!3e2!1m3!1e9!2b1!3e2!1m3!1e10!2b0!3e3!1m3!1e10!2b1!3e2!1m3!1e10!2b0!3e4!2b1!4b1!9b0!22m2!1saSjN8nTmk850sCPMcoo3o-8!7e81!23m2!4b1!10b1!24m82!1m29!13m9!2b1!3b1!4b1!6i1!8b1!9b1!14b1!20b1!25b1!18m18!3b1!4b1!5b1!6b1!9b1!12b1!13b1!14b1!15b1!17b1!20b1!21b1!22b0!25b1!27m1!1b0!28b0!30b0!2b1!5m6!2b1!3b1!5b1!6b1!7b1!10b1!10m1!8e3!11m1!3e1!14m1!3b1!17b1!20m2!1e3!1e6!24b1!25b1!26b1!29b1!30m1!2b1!36b1!39m3!2m2!2i1!3i1!43b1!52b1!54m1!1b1!55b1!56m2!1b1!3b1!65m5!3m4!1m3!1m2!1i224!2i298!71b1!72m4!1m2!3b1!5b1!4b1!89b1!103b1!113b1!26m4!2m3!1i80!2i92!4i8!34m18!2b1!3b1!4b1!6b1!8m6!1b1!3b1!4b1!5b1!6b1!7b1!9b1!12b1!14b1!20b1!23b1!25b1!26b1!37m1!1e81!47m0!49m6!3b1!6m2!1b1!2b1!7m1!1e3!67m2!7b1!10b1!69i648", llSplit[1], strings.ReplaceAll(llSplit[0], "@", ""))
 
 	var urlQuery = url.Values{
@@ -930,7 +927,6 @@ func DoMapsReviews(ctx context.Context, params *RequestParam) (*Response, error)
 	}
 	arrData := strings.ReplaceAll(jsoniter.Get([]byte(dataStr), 3, 6).ToString(), ")]}'\n", "")
 
-	// 排序 翻页 话题
 	paramFunc := func(dataStr string) (string, error) {
 		var numStr string
 		switch params.SortBy {
@@ -1723,7 +1719,6 @@ func travelModeMapping(flag int) string {
 	}
 }
 
-// 数字跟英文字符  只截取数字部分
 func extractNumbersUsingMap(s string) string {
 	filter := func(r rune) rune {
 		if unicode.IsDigit(r) || r == '.' {
@@ -1734,26 +1729,21 @@ func extractNumbersUsingMap(s string) string {
 	return strings.Map(filter, s)
 }
 
-// 提取经度和纬度
 func extractLatLong(input string) (latitude, longitude string, err error) {
-	// 去掉 @ 和 z
 	trimmed := strings.TrimPrefix(input, "@")
 	trimmed = strings.TrimSuffix(trimmed, "z")
 
-	// 按逗号分割
 	parts := strings.Split(trimmed, ",")
 	if len(parts) < 2 {
 		return "", "", fmt.Errorf("invalid input format")
 	}
 
-	// 提取纬度和经度
 	latitude = parts[0]
 	longitude = parts[1]
 
 	return latitude, longitude, nil
 }
 
-// 定义结构体来匹配 JSON 数据
 type jsonData struct {
 	C int    `json:"c"`
 	D string `json:"d"`

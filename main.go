@@ -18,12 +18,9 @@ func main() {
 	defer actor.Close()
 	ctx := context.TODO()
 	// Get params from environment variables
-	var params = &QueueParams{}
-	if err := actor.Input(params); err != nil {
+	var param = &RequestParam{}
+	if err := actor.Input(param); err != nil {
 		panic(err)
-	}
-	if params.Params == nil {
-		panic("params is nil")
 	}
 	// Get proxy
 	proxy := getProxy(actor, ctx)
@@ -37,13 +34,11 @@ func main() {
 	queueId := createQueue(ctx, q, name)
 	createdQueueId := actor.Storage.GetQueue(queueId)
 	// Cyclically add tasks to the queue
-	for _, param := range params.Params {
-		marshal, err := json.Marshal(param)
-		if err != nil {
-			panic(fmt.Sprintf("Error marshalling params: %s", err))
-		}
-		setQueue(ctx, createdQueueId, taskName, string(marshal))
+	marshal, err := json.Marshal(param)
+	if err != nil {
+		panic(fmt.Sprintf("Error marshalling params: %s", err))
 	}
+	setQueue(ctx, createdQueueId, taskName, string(marshal))
 	// Create Kv
 	namespaceId, _, err := actor.Storage.GetKv().CreateNamespace(ctx, name)
 	if err != nil {
@@ -91,7 +86,6 @@ func main() {
 		fmt.Printf("kv-->Get value:%s\n", value)
 		fmt.Println(">==============end crawl==============<")
 	}
-	select {}
 }
 
 func getProxy(actor *scrapeless.Actor, ctx context.Context) string {
